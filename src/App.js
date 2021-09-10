@@ -14,7 +14,7 @@ function App() {
           <Route path={`/season`}>
            <SeasonList /> 
           </Route>
-          <Route path={`/shows/`}>
+          <Route path={`/show/:showId/`}>
             <ShowPage />
           </Route>
           <Route path="/">

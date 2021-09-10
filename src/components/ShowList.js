@@ -2,12 +2,14 @@ import React from 'react'
 
 export default function ShowList({showList}) {
     return (
-        <div>
-            {showList.map((show)=>{
+        <div className="showlist-wrapper">
+            <h2 className="showList-title">Shows</h2>
+            <ul> {showList.map((show)=>{
                 return (
-                    <p key={showList.id}>{show.name}</p>
+                    <li key={showList.id} className="showlist-name">{show.name}</li>
                 )
-            })}
+            })}</ul>
+           
         </div>
     )
 }

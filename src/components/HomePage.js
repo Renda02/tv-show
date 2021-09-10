@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Pagination from "./Pagination";
 import ShowList from "./ShowList";
 
 function HomePage() {
   const [showList, setShowList] = useState([]);
-  const [searchShow, setSearchShow] = useState("");
-  const [history, setHistory] = useState([]);
+
+  //searching
+  const [search, setSearch] = useState("");
+  const searchRef = useRef();
+  const [suggestionList, setSuggestionList] = useState([]);
 
   //pagination
   const [currentPage, setCurrentPage] = useState(1);
@@ -27,16 +30,33 @@ function HomePage() {
   }, []);
 
   //searching Characters
-  function getShows(e) {
-    fetch(`https://swapi.dev/api/people/?search=${searchShow}`)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        setShowList(data);
-        //setHistory([...history, { searchShow, data }]);
-      });
-  }
+  const handleSearch = () => {
+    const filteredEvent = showList.filter((e) => {
+      if (e.name.toLowerCase().includes(search.toLowerCase())) {
+        return true;
+      }
+      return false;
+    });
+    setShowList(filteredEvent);
+  };
+
+  const handleChange = () => {
+    const searchTerm = searchRef.current.value;
+    const matchingShows = showList.filter((e) => {
+      if (e.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+        return true;
+      }
+      return false;
+    });
+    if (searchTerm.length > 0) {
+      setSuggestionList(matchingShows);
+    } else {
+      // clean up
+      setSuggestionList([]);
+    }
+
+    setSearch(searchTerm);
+  };
 
   //pagination
   const lastShow = currentPage * showPerPage;
@@ -47,34 +67,37 @@ function HomePage() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div>
-      <h1> Favorite Shows</h1>
-      <div>
-        <input
-          type="text"
-          required
-          className="search-show-input"
-          placeholder="Search your favorite"
-          onChange={(event) => {
-            setSearchShow(event.target.value);
-          }}
-        />
-        <button className="search-show-btn" onClick={getShows}>
-          search
-        </button>
+    <div className="homepage-container">
+     
+      <div className="search-wrapper">
+        <div>
+          <input
+            type="text"
+            onChange={handleChange}
+            ref={searchRef}
+            placeholder="Search your favorite..."
+          />
+          {suggestionList.length > 0 && (
+            <div>
+              {suggestionList.map((suggestion) => (
+                <p
+                  onClick={() => {
+                    console.log("text");
+
+                    searchRef.current.value = suggestion.name;
+                    setSearch(suggestion.name);
+                    setSuggestionList([]);
+                  }}
+                >
+                  {suggestion.name}
+                </p>
+              ))}
+            </div>
+          )}
+        </div>
+        <button onClick={handleSearch}>Search</button>
       </div>
 
-      {history.map((item) => {
-        return (
-          <button
-            onClick={() => {
-              setShowList(item.data);
-            }}
-          >
-            {item.searchCharacter}
-          </button>
-        );
-      })}
       <ShowList showList={currentshows} />
       <Pagination
         showPerPage={showPerPage}

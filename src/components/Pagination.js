@@ -10,9 +10,10 @@ pageNumbers.push(i);
 
     return (
         <div>
-            <nav> <ul className="paginate-list">
+            <nav> 
+                <ul className="paginate-list">
                 {pageNumbers.map((number)=>{
-                    return <li>
+                    return <li className="pagination-list">
                         <a onClick={() => paginate(number)} href='!#' className='page-link'>
               {number}
             </a>

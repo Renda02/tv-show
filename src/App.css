@@ -61,29 +61,74 @@ body {
 
 /*HomePage*/
 
-.search-show-input {
-  font-family: inherit;
-  text-align: inherit;
-  padding: 0.5em;
-  width: 250px;
-  border: 1px solid #3d0478;
-  border-radius: 3px;
+.search-wrapper{  display: flex;
+  justify-content: center;
+  padding: 18px;
+  align-items: space-between;
+  position: relative;
+margin-bottom: 1.2em;}
+
+input {
+  outline: none;
+  background: none;
+  padding: 18px;
+  border: none;
+  font-size: 1rem;
+  color: #000;
+  border-radius: 8px 0 0 8px;
+  height: 22px;
+  color: gray;
+  background-color: #f2f2f2;
 }
 
-.search-show-btn {
-  display: inline-block;
-  padding: 1.5em;
-  border-radius: 5px;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: #3d0478;
-  background-color: #73f340;
-  border: 0;
-  letter-spacing: 0.5px;
+button{
+  border: 2px solid #73f340;
+  padding: 5px 5px;
+  font-size: 18px;
+  background: #73f340;
+  color: #fff;
   cursor: pointer;
+  margin: 0 0 1rem 0;
+  border-radius: 0 8px 8px 0;
 }
 
+/* homepage */
 
-.paginate-lists{
-    display: flex;
+
+
+/*pagination */
+.paginate-list{
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  text-align: center;
+  margin: 2em 0;
+}
+
+.pagination-list a{
+ text-decoration: none;
+color: #afafaf;
+ padding: 0.5em 0.8em;
+border-radius: 2px;
+border: 1px solid #73f340;
+font-weight: 400;
+}
+
+.pagination-list a:hover{
+  background-color: #73f340;
+  border: none; color: #fff;
+}
+
+/*showlist*/
+
+.showlist-wrapper{
+ margin: 0 auto;
+ width: 90%;
+ max-width: 900px;
+  
+}
+
+.showlist-name{
+
+
 }

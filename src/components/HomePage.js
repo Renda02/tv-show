@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
+import ShowList from "./ShowList";
 
 function HomePage() {
   const [showList, setShowList] = useState([]);
   const [searchShow, setSearchShow] = useState("");
   const [history, setHistory] = useState([]);
+
+//pagination
+const [currentPage, setCurrentPage] = useState(1);
+const [showPerPage, setShowPerPage] = useState (25);
 
   useEffect(() => {
     async function fetchData() {
@@ -30,16 +35,21 @@ function HomePage() {
       .then(function (data) {
          
         setShowList(data);
-        setHistory([...history, { searchShow, data }]);
+        //setHistory([...history, { searchShow, data }]);
       });
   }
+
+  //pagination
+const lastShow = currentPage * showPerPage;
+const firstShow = lastShow - showPerPage;
+const currentshows = showList.slice(firstShow, lastShow)
 
 
 
   return (
     <div>
       <h1> Favorite Shows</h1>
-      <form>
+      <div>
         <input
           type="text"
           required
@@ -50,12 +60,20 @@ function HomePage() {
           }}
         />
         <button className="search-show-btn" onClick={getShows}>search</button>
-      </form>
-      <div>
-          {showList.map((shows, id)=>{
-              return <p key={id}>{shows.name}</p>
-          })}
       </div>
+     
+      {history.map((item) => {
+          return (
+            <button
+              onClick={() => {
+                setShowList(item.data);
+              }}
+            >
+              {item.searchCharacter}
+            </button>
+          );
+        })}
+      <ShowList showList={currentshows}/>
     </div>
   );
 }

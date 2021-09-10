@@ -82,3 +82,8 @@ body {
   letter-spacing: 0.5px;
   cursor: pointer;
 }
+
+
+.paginate-lists{
+    display: flex;
+}

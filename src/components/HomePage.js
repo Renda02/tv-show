@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Pagination from "./Pagination";
 import ShowList from "./ShowList";
 
 function HomePage() {
@@ -6,9 +7,9 @@ function HomePage() {
   const [searchShow, setSearchShow] = useState("");
   const [history, setHistory] = useState([]);
 
-//pagination
-const [currentPage, setCurrentPage] = useState(1);
-const [showPerPage, setShowPerPage] = useState (25);
+  //pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [showPerPage, setShowPerPage] = useState(25);
 
   useEffect(() => {
     async function fetchData() {
@@ -27,24 +28,23 @@ const [showPerPage, setShowPerPage] = useState (25);
 
   //searching Characters
   function getShows(e) {
-    
     fetch(`https://swapi.dev/api/people/?search=${searchShow}`)
       .then(function (response) {
         return response.json();
       })
       .then(function (data) {
-         
         setShowList(data);
         //setHistory([...history, { searchShow, data }]);
       });
   }
 
   //pagination
-const lastShow = currentPage * showPerPage;
-const firstShow = lastShow - showPerPage;
-const currentshows = showList.slice(firstShow, lastShow)
+  const lastShow = currentPage * showPerPage;
+  const firstShow = lastShow - showPerPage;
+  const currentshows = showList.slice(firstShow, lastShow);
 
-
+  //change pages
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div>
@@ -59,21 +59,28 @@ const currentshows = showList.slice(firstShow, lastShow)
             setSearchShow(event.target.value);
           }}
         />
-        <button className="search-show-btn" onClick={getShows}>search</button>
+        <button className="search-show-btn" onClick={getShows}>
+          search
+        </button>
       </div>
-     
+
       {history.map((item) => {
-          return (
-            <button
-              onClick={() => {
-                setShowList(item.data);
-              }}
-            >
-              {item.searchCharacter}
-            </button>
-          );
-        })}
-      <ShowList showList={currentshows}/>
+        return (
+          <button
+            onClick={() => {
+              setShowList(item.data);
+            }}
+          >
+            {item.searchCharacter}
+          </button>
+        );
+      })}
+      <ShowList showList={currentshows} />
+      <Pagination
+        showPerPage={showPerPage}
+        totalShows={showList.length}
+        paginate={paginate}
+      />
     </div>
   );
 }

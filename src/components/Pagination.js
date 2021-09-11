@@ -12,7 +12,7 @@ pageNumbers.push(i);
         <div>
             <nav> 
                 <ul className="paginate-list">
-                {pageNumbers.map((number, i)=>{
+                {pageNumbers.map((number,i)=>{
                     return <li key={i} className="pagination-list">
                         <a onClick={() => paginate(number)} href='/' className='page-link'>
               {number}

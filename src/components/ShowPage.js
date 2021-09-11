@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import styled from "styled-components";
 
 function ShowPage({ showList }) {
@@ -47,7 +47,9 @@ function ShowPage({ showList }) {
           <strong>Rating:</strong>{" "}
           {show.rating ? show.rating.average : "No rating"}
         </p>
+     
       </div>
+      
     </ShowPageWrapper>
   );
 }
@@ -71,3 +73,10 @@ margin-right: 2rem;`;
 const Genre = styled.a`
 background:#73f340;
 padding:0.4em 1em`;
+
+const SeasonLink = styled(Link)`
+  text-decoration: none;
+  color: #fff;
+  padding: 0.3em;
+  
+`;

@@ -51,5 +51,5 @@ const ShowLink = styled(Link)`
   text-decoration: none;
   color: #fff;
   padding: 0.3em;
-  // }
+  
 `;

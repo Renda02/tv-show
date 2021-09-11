@@ -15,7 +15,7 @@ function App() {
         <NavBar />
         <Switch>
           {" "}
-          <Route path={`/:seasonId/season`}>x
+          <Route path={`shows/:seasonId/seasons`}>x
             <SeasonList />
           </Route>
           <Route path={`/shows/:showId`}>

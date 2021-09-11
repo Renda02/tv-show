@@ -29,10 +29,12 @@ function HomePage() {
     // set the events
   }, []);
 
-  //searching Characters
-  const handleSearch = () => {
+  //searching Shows
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const searchTerm = searchRef.current.value;
     const filteredEvent = showList.filter((e) => {
-      if (e.name.toLowerCase().includes(search.toLowerCase())) {
+      if (e.name.toLowerCase().includes(searchTerm.toLowerCase())) {
         return true;
       }
       return false;

@@ -1,6 +1,6 @@
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import React, { Fragment } from 'react';
-import GlobalStyle from './theme/globalStyle'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React, { Fragment } from "react";
+import GlobalStyle from "./globalStyles.js";
 import "./App.css";
 import HomePage from "./components/HomePage";
 import NavBar from "./components/NavBar";
@@ -14,10 +14,11 @@ function App() {
         <GlobalStyle />
         <NavBar />
         <Switch>
-          <Route path={`/season`}>
-           <SeasonList /> 
+          {" "}
+          <Route path={`/:seasonId/season`}>x
+            <SeasonList />
           </Route>
-          <Route path={`/show/:showId/`}>
+          <Route path={`/shows/:showId`}>
             <ShowPage />
           </Route>
           <Route path="/">

@@ -4,18 +4,16 @@ import { Link } from "react-router-dom";
 function NavBar() {
   return (
     <div className="navbar-container">
-      <h1 className="navbar-heading"> TV show</h1>
+      <Link to="/"><h1 className="navbar-heading"> TV show</h1></Link>
       <nav className="navbar-wrapper">
         <ul className="navbar-unorderlist">
-          <Link to="/">
-            {" "}
-            <li className="navbar-list">
-              <a href="/" alt="home">
-                Home
-              </a>
-            </li>
-          </Link>
-
+          {" "}
+          <li className="navbar-list">
+            <a href="/" alt="home">
+              {" "}
+              <Link to="/">Home</Link>{" "}
+            </a>{" "}
+          </li>
           <Link to="/season">
             {" "}
             <li className="navbar-list">
@@ -25,7 +23,6 @@ function NavBar() {
               </a>
             </li>
           </Link>
-
           <li className="navbar-list btn">
             <a href="/" alt="home">
               {" "}

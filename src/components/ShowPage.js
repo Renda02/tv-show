@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-function ShowPage() {
+function ShowPage({showList}) {
 const { showId } = useParams();
   const [show, setShow] = useState({});
 
@@ -24,7 +24,7 @@ const { showId } = useParams();
   }, [showId]);
 
   return <div>
-      <h2>{show.name}</h2>
+  <h2>{show.name}</h2>
   </div>;
 }
 

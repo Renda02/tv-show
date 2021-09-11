@@ -8,7 +8,7 @@ function SeasonList() {
 
     useEffect(() => {
       async function fetchData(){
-          const response = await fetch(`https://api.tvmaze.com/shows/1/seasons`);
+          const response = await fetch(`https://api.tvmaze.com/shows/${seasonId}/seasons`);
 
           const data = await response.json();
 console.log(data);
@@ -16,7 +16,7 @@ console.log(data);
       }
 
       fetchData();
-    }, [])
+    }, [seasonId])
 
     return (
         <div>

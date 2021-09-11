@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export const Container = styled.div`
-  max-width: 900px;
+  max-width: 1200px;
   padding: 40px 0;
   color: #f1f1f1;
   margin: 0 auto;

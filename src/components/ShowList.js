@@ -5,9 +5,9 @@ import styled from "styled-components";
 export default function ShowList({ showList }) {
   return (
     <ShowContainer>
-      {showList.map((show) => {
+      {showList.map((show, i) => {
         return (
-          <ShowCard>
+          <ShowCard key={i}>
             {" "}
             <ShowLink to={"/shows/" + show.id}>
               <h4>

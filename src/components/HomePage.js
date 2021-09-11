@@ -20,8 +20,8 @@ function HomePage() {
       const response = await fetch("https://api.tvmaze.com/shows");
       // 2. prepare the data
       const data = await response.json();
-      console.log(data);
-      // 3. update the value of the state
+
+      // update the value of the state
       setShowList(data);
     }
     fetchData();
@@ -70,7 +70,6 @@ function HomePage() {
 
   return (
     <div className="homepage-container">
-     
       <div className="search-wrapper">
         <div>
           <input

@@ -20,7 +20,6 @@ const NavBarWrapper = styled.nav`
   justify-content: space-between;
   background-color: #000000;
   color: #fff;
-  
 `;
 
 const NavLink = styled(Link)`

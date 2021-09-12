@@ -1,4 +1,36 @@
-# Getting Started with Create React App
+### A TV Show React App
+
+*  The task is to build a TV show using React using [TVmaze API].
+
+### Proposed Solutions
+
+* To fetch data we need:
+ -- A [state](state) to store data.
+ -- A request to [fetch](fetch) data from API.
+* To navigate the pages through other pages we need:
+ -- [React-router-dom](React-Router)
+* To display shows per page we need:
+ -- To add [Pagination]() to display 10 shows per page
+* To global search shows we need:
+ -- Input search bar with [onChange()]() 
+
+### Outstanding todo-list
+
+* HomePage
+ --  Favorite show-list
+*   Season list
+  -- Episode list
+* Adding /Removing favorite show 
+
+
+### Libraries/Tools used
+
+*  Create React App for enviroment setup
+*  Styled Components for CSS
+* Google Font for typography
+*  React-Router for page navigation 
+
+### SetUp
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

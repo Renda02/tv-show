@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams} from "react-router-dom";
 import styled from "styled-components";
 
 function ShowPage({ showList }) {
@@ -28,18 +28,16 @@ function ShowPage({ showList }) {
         src={
           show.image
             ? show.image.medium
-            : "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg"
+            : ""
         }
         alt={show.name}
       />
       <div>
         <h1>{show.name}</h1>
-        <div>{show.genres &&
-          show.genres.filter((genre) => (
-            <Genre href="/">
-              {genre}
-            </Genre>
-          ))}</div>
+        <div>
+          {show.genres &&
+            show.genres.filter((genre) => <Genre href="/">{genre}</Genre>)}
+        </div>
         <p>
           <strong>Premiered:</strong> {show.premiered}
         </p>
@@ -47,9 +45,7 @@ function ShowPage({ showList }) {
           <strong>Rating:</strong>{" "}
           {show.rating ? show.rating.average : "No rating"}
         </p>
-     
       </div>
-      
     </ShowPageWrapper>
   );
 }
@@ -66,17 +62,17 @@ const ShowPageWrapper = styled.div`
   align-items: center;
 `;
 
-
-const Image =styled.img`
-margin-right: 2rem;`;
+const Image = styled.img`
+  margin-right: 2rem;
+`;
 
 const Genre = styled.a`
-background:#73f340;
-padding:0.4em 1em`;
-
-const SeasonLink = styled(Link)`
-  text-decoration: none;
-  color: #fff;
-  padding: 0.3em;
-  
+  background: #73f340;
+  padding: 0.4em 1em;
 `;
+
+//const SeasonLink = styled(Link)`
+  //text-decoration: none;
+  //olor: #fff;
+  //padding: 0.3em;
+//`;

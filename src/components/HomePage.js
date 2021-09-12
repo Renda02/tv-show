@@ -120,7 +120,7 @@ const HeaderSearch = styled.div`
 const Input = styled.input`
   outline: none;
   background: #fff;
-  padding: 8px;
+  padding: 7px;
   border: none;
   font-size: 1rem;
   color: #000;
@@ -151,8 +151,7 @@ const AutoCompleteResult = styled.p`
 
 const Btn = styled.button`
   border: 2px solid #73f340;
-  padding: 4.5px 5px;
-  font-size: 18px;
+  padding: 7px 5px;
   background: #73f340;
   color: #fff;
   cursor: pointer;

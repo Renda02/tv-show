@@ -66,7 +66,7 @@ function HomePage() {
   const currentshows = showList.slice(firstShow, lastShow);
 
   //change pages
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = pageNumber => setCurrentPage(pageNumber);
 
   return (
     <div className="homepage-container">

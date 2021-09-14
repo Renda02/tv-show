@@ -11,9 +11,9 @@ function Pagination({ showPerPage, totalShows, paginate }) {
     <div>
       <nav>
         <ul className="paginate-list">
-          {pageNumbers.map((number, i) => {
+          {pageNumbers.map((number) => {
             return (
-              <li key={i} className="pagination-list">
+              <li key={number} className="pagination-list">
                 <a
                   onClick={() => paginate(number)}
                   href="/"

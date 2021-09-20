@@ -1,5 +1,7 @@
 import React from "react";
 
+
+
 function Pagination({ showPerPage, totalShows, paginate }) {
   const pageNumbers = [];
 
@@ -16,7 +18,7 @@ function Pagination({ showPerPage, totalShows, paginate }) {
               <li key={number} className="pagination-list">
                 <a
                   onClick={() => paginate(number)}
-                  href="/"
+                  href="#/"
                   className="page-link"
                 >
                   {number}
@@ -31,3 +33,5 @@ function Pagination({ showPerPage, totalShows, paginate }) {
 }
 
 export default Pagination;
+
+

@@ -2,7 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export default function ShowList({ showList }) {
+export default function ShowList({ showList,loading }) {
+  if (loading) {
+    return <h2>Loading...</h2>;
+  }
+
   return (
     <ShowContainer>
       {showList.map((show, i) => {

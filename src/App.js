@@ -4,7 +4,7 @@ import GlobalStyle from "./globalStyles.js";
 import "./App.css";
 import HomePage from "./components/HomePage";
 import NavBar from "./components/NavBar";
-import SeasonList from "./components/SeasonList";
+
 import ShowPage from "./components/ShowPage";
 
 function App() {
@@ -14,10 +14,9 @@ function App() {
         <GlobalStyle />
         <NavBar />
         <Switch>
-          {" "}
-          <Route path={`shows/:seasonId/seasons`}>x
+          {/*<Route path={`shows/:seasonId/seasons`}>x
             <SeasonList />
-          </Route>
+          </Route> */}
           <Route path={`/shows/:showId`}>
             <ShowPage />
           </Route>

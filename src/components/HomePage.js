@@ -5,6 +5,7 @@ import ShowList from "./ShowList";
 
 function HomePage() {
   const [showList, setShowList] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   //searching
   const [search, setSearch] = useState("");
@@ -24,6 +25,8 @@ function HomePage() {
 
       // update the value of the state
       setShowList(data);
+
+      setLoading(false);
     }
     fetchData();
     // fetch data
@@ -66,7 +69,7 @@ function HomePage() {
   const currentshows = showList.slice(firstShow, lastShow);
 
   //change pages
-  const paginate = pageNumber => setCurrentPage(pageNumber);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className="homepage-container">
@@ -96,7 +99,7 @@ function HomePage() {
         </div>
         <Btn onClick={handleSearch}>Search</Btn>
       </HeaderSearch>{" "}
-      <ShowList showList={currentshows} />
+      <ShowList showList={currentshows} loading={loading}/>
       <Pagination
         showPerPage={showPerPage}
         totalShows={showList.length}
